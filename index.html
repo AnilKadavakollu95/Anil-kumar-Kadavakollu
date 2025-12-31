@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anil Kumar Kadavakollu | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #667eea;
+        }
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3rem 5%;
+            color: white;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 1rem 0;
+            line-height: 1.2;
+        }
+        .hero-tags {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .section {
+            padding: 5rem 5%;
+            background: white;
+            margin: 2rem 0;
+        }
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .card-content {
+            color: #555;
+            line-height: 1.8;
+        }
+        .card-content p {
+            margin: 0.5rem 0;
+        }
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .skills-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        .skills-list {
+            list-style: none;
+        }
+        .skills-list li {
+            padding: 0.5rem 0;
+            color: #555;
+        }
+        .skills-list li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin: 1.5rem 0;
+        }
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        .contact-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Anil Kumar</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#internships">Internships</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p style="font-size: 1.2rem;">Hi, I'm</p>
+            <h1>ANIL KUMAR KADAVAKOLLU</h1>
+            <div class="hero-tags">
+                <div class="tag">Mechanical Engineering Graduate</div>
+                <div class="tag">Quality and Design Enthusiast</div>
+                <div class="tag">Aluminium Casting and Manufacturing</div>
+            </div>
+            <div class="hero-buttons">
+                <a href="https://linkedin.com/in/anil-kumar-kadavakollu" class="btn btn-primary">LinkedIn</a>
+                <a href="https://github.com/AnilKadavakollu95" class="btn btn-primary">GitHub</a>
+                <a href="#contact" class="btn btn-primary">Contact</a>
+            </div>
+            <p style="color: rgba(255, 255, 255, 0.9); margin-top: 2rem;">Mechanical Engineering graduate with hands-on experience in quality control, aluminium casting inspection, and CAD and CAE tools such as CATIA, AutoCAD, and ANSYS.</p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p class="about-text">I am Anil Kumar Kadavakollu, a Mechanical Engineering graduate from Prasad V Potluri Siddhartha Institute of Technology in Vijayawada.</p>
+        <p class="about-text">My interests lie in quality control, aluminium casting, and manufacturing processes, with practical exposure to GD and T, Lean and 5S practices, and shop-floor activities.</p>
+        <p class="about-text">Through internships at Orient Electric, GS Alloy Castings, APGENCO, and ISHRAE, I have developed strong shop-floor awareness, attention to detail, and a solid understanding of thermal power systems and HVAC fundamentals.</p>
+        <p class="about-text">I enjoy working with industry-standard CAD and CAE tools like CATIA, AutoCAD, and ANSYS to support design, analysis, and process improvement in core mechanical roles.</p>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>My Projects</h2>
+        <div class="card">
+            <h3>Aluminium-Rich Multi-Principal Element Alloy</h3>
+            <p class="card-subtitle">B.Tech Major Project – Materials and Manufacturing</p>
+            <div class="card-content">
+                <p>Designed an aluminium-rich multi-principal element alloy composition with aluminium as the main element and chromium, cobalt, nickel, and iron as additional elements to target high strength-to-weight ratio and wear resistance.</p>
+                <p>Fabricated specimens through vacuum induction casting and carried out hardness, wear, and thermal-conductivity testing.</p>
+                <p>Performed microstructural analysis using optical microscopy and compared results with conventional aluminium alloys.</p>
+                <p>Documented experimental results using Microsoft Excel and Word and prepared structured technical reports.</p>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-tag">Aluminium Alloys</span>
+                <span class="tech-tag">Vacuum Induction Casting</span>
+                <span class="tech-tag">Materials Testing</span>
+                <span class="tech-tag">Microstructure Analysis</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="internships" class="section">
+        <h2>Internship and Industry Experience</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Quality Engineer</h3>
+                <p class="card-subtitle">Orient Electric Ltd., Hyderabad</p>
+                <div class="card-content">
+                    <p>Conducted quality audits and inspections on electrical components to ensure compliance with manufacturing standards.</p>
+                    <p>Documented quality defects, prepared inspection reports, and supported corrective and preventive actions with production teams.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Quality Control Intern</h3>
+                <p class="card-subtitle">GS Alloy Castings Pvt. Ltd., Vijayawada</p>
+                <div class="card-content">
+                    <p>Inspected aluminium castings for surface cracks, internal defects, and dimensional accuracy using gauges and visual methods.</p>
+                    <p>Monitored process parameters and reported non-conformities to improve casting quality and reduce rework.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Intern Power Generation</h3>
+                <p class="card-subtitle">APGENCO</p>
+                <div class="card-content">
+                    <p>Studied thermal power systems, boiler and turbine mechanics, and equipment reliability.</p>
+                    <p>Gained exposure to preventive maintenance, Lean and 5S principles, equipment inspection, shop-floor safety, and prepared maintenance logs and operational reports.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Intern HVAC and R Systems</h3>
+                <p class="card-subtitle">ISHRAE</p>
+                <div class="card-content">
+                    <p>Learned HVAC design fundamentals, thermodynamic principles, load calculations, component sizing, and energy-efficiency concepts.</p>
+                    <p>Documented equipment specifications, system diagrams, and energy-efficiency recommendations for future reference and benchmarking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skills-category">
+                <h3>Design Tools</h3>
+                <ul class="skills-list">
+                    <li>CATIA V5 for three-dimensional modeling, assembly, and two-dimensional drawings</li>
+                    <li>AutoCAD for two-dimensional drafting and layouts</li>
+                    <li>ANSYS</li>
+                    <li>CAD and CAM</li>
+                    <li>MATLAB</li>
+                    <li>Inventor Pro</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Mechanical</h3>
+                <ul class="skills-list">
+                    <li>Power transmission including gears, shafts, bearings, and couplings</li>
+                    <li>Manufacturing processes such as casting, machining, and forming</li>
+                    <li>Materials science</li>
+                    <li>GD and T</li>
+                    <li>Lean and 5S</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Software and Tools</h3>
+                <ul class="skills-list">
+                    <li>Microsoft Word</li>
+                    <li>Microsoft Excel</li>
+                    <li>Microsoft PowerPoint</li>
+                    <li>Power BI</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Soft Skills</h3>
+                <ul class="skills-list">
+                    <li>Problem-solving</li>
+                    <li>Analytical thinking</li>
+                    <li>Time management</li>
+                    <li>Teamwork and communication</li>
+                    <li>Shop-floor awareness</li>
+                    <li>Attention to detail</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="section">
+        <h2>Achievements and Strengths</h2>
+        <div class="cards">
+            <div class="card">
+                <p>Completed hands-on internships at major industrial organizations, gaining practical manufacturing and technical experience.</p>
+            </div>
+            <div class="card">
+                <p>Developed proficiency in industry-standard design software such as CATIA, AutoCAD, and ANSYS for mechanical and automotive applications.</p>
+            </div>
+            <div class="card">
+                <p>Strong understanding of 5S and Lean manufacturing principles, total productive maintenance, and quality management systems.</p>
+            </div>
+            <div class="card">
+                <p>Maintained good academic performance in Mechanical Engineering, demonstrating dedication to learning and professional development.</p>
+            </div>
+            <div class="card">
+                <p>Eager to apply technical knowledge and lab experience to real-world engineering challenges in product design and optimization.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 3rem;">Open to Graduate Engineer Trainee, Quality Engineer, and design-related roles in mechanical and manufacturing domains.</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p>kkanilkumar95@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h3>Location</h3>
+                <p>Vijayawada, Andhra Pradesh, India</p>
+            </div>
+            <div class="contact-item">
+                <h3>LinkedIn</h3>
+                <p><a href="https://linkedin.com/in/anil-kumar-kadavakollu" style="color: white; text-decoration: underline;">Visit Profile</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>GitHub</h3>
+                <p><a href="https://github.com/AnilKadavakollu95" style="color: white; text-decoration: underline;">Visit Profile</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright 2025 Anil Kumar Kadavakollu. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
